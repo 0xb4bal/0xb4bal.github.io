@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Enriching an IP without trusting reputation — notes</title>
+<meta name="description" content="An enrichment and triage workflow that treats reputation as supporting evidence, with the honest limitations of the tooling.">
+<meta name="color-scheme" content="dark">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>🛡</text></svg>">
+</head>
+<body>
+<div class="wrap">
+<header class="site">
+  <a class="brand" href="/">iqbal<span>//</span>soc</a>
+  <nav>
+    <a href="/" >Home</a>
+    <a href="/notes/" >Notes</a>
+    <a href="/projects.html" >Projects</a>
+    <a href="/about.html" >About</a>
+    <a href="https://github.com/0xb4bal" rel="me noopener">GitHub</a>
+  </nav>
+</header>
+<p class="mono dim">detection notes &middot; threat intel &middot; triage workflow</p>
+<h1>Enriching an IP without trusting reputation</h1>
+<p class="lede">An IP with a bad history is a reason to look, not a conclusion. This is the enrichment order I
+use so that reputation supports an assessment instead of replacing one.</p>
+
+<h2>The problem</h2>
+<p>Reputation lookups are cheap, which makes them the first thing an analyst does and the easiest thing to
+over-trust. Two failure modes show up constantly in a real queue: a shared-hosting or corporate NAT address
+that dozens of clean tenants also use, and a source that is right about the address but wrong about the
+context — a scanner hitting the perimeter is not the same event as the same address authenticating to a
+mailbox.</p>
+
+<h2>The order that works</h2>
+<ol>
+  <li><strong>What happened first, indicators second.</strong> Read the alert, establish the claimed behaviour,
+  and only then go looking for evidence about the address. Enrichment before comprehension produces confident
+  mistakes.</li>
+  <li><strong>Classify the address.</strong> Hosting provider, VPN egress, residential, corporate, cloud
+  tenant. An address is judged differently in each class, and the class changes the question — "is this
+  expected egress for this service" beats "is this address bad".</li>
+  <li><strong>Correlate internally before externally.</strong> Does the address appear anywhere else in my
+  telemetry? Newly seen on this tenant, or a recurring pattern? Internal history is more relevant than a
+  third-party score.</li>
+  <li><strong>Enrich across several sources, then weigh them.</strong> VirusTotal, AbuseIPDB, Cisco Talos and
+  IBM X-Force answer different questions: file and URL history, crowd-reported abuse, curated reputation, and
+  threat-intel context respectively. Where they disagree, the disagreement is the finding.</li>
+  <li><strong>Decide with confidence stated.</strong> Fact / observation / assessment / assumption, and a
+  confidence level attached to the verdict. An inconclusive call written down honestly is worth more than a
+  wrong one written confidently.</li>
+</ol>
+
+<h2>What I built for the repetitive part</h2>
+<p>Step 4 is mechanical, so I wrote a standalone client-side lookup page that queries VirusTotal, AbuseIPDB,
+Shodan and AlienVault OTX for one indicator and presents a single weighted verdict band instead of four
+disagreeing panels. API keys are stored locally in the browser and never sent anywhere except the vendors
+themselves.</p>
+
+<h2>Its honest limitation</h2>
+<p>AbuseIPDB blocks browser-origin requests, so that one source cannot be queried directly from a page like
+this — it needs a server-side proxy. So the tool is an analyst aid, not an automation pipeline: it collapses
+four tabs into one view and leaves the judgement with the person using it. The fix is a small proxy, and the
+reason it is not built is that the value is in the triage reasoning, not in removing one tab.</p>
+
+<div class="note"><p><strong>What this is not:</strong> a scoring model with published weights. The source
+weighting is tuned to how often each source produced a false positive for me, which is a personal dataset, not
+a benchmark. Treat it as one analyst's calibration, not a standard.</p></div>
+
+<p class="dim"><a href="/notes/">&larr; all notes</a></p>
+
+<footer class="site">
+  <span>Kuala Lumpur, Malaysia &middot; <span class="mono">muhammed iqbal bin hamdzan</span></span>
+  <span><a href="https://github.com/0xb4bal">github.com/0xb4bal</a> &middot; <a href="https://www.linkedin.com/in/iqbalhamdzan">LinkedIn</a></span>
+</footer>
+</div>
+</body>
+</html>
