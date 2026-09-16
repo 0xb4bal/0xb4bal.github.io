@@ -110,8 +110,25 @@ Pages rebuilds automatically. No build step, no dependencies, nothing to install
 | `assets/style.css` | the entire design; one file, no preprocessor |
 | `.nojekyll` | stops Jekyll touching the files |
 
-`CNAME` is intentionally **not** in the repo yet — a wrong CNAME breaks the `0xb4bal.github.io` URL.
-It gets created by GitHub when you set the custom domain.
+## Live status
+
+| Item | State |
+|---|---|
+| Repo | `0xb4bal.github.io` (public) — Pages on `main / (root)`, HTTPS enforced |
+| Default URL | https://0xb4bal.github.io (works) |
+| Custom domain | **https://iqbalhamdzan.xyz** — live, certificate issued (Let's Encrypt, covers apex + www, expires 15 Dec 2026, auto-renews) |
+| `www` | 301 → https://iqbalhamdzan.xyz |
+| Project sites | `iqbalhamdzan.xyz/godmode` still serves (why the user-site repo was used) |
+| Contact | `security@iqbalhamdzan.xyz` in the footer of every page + `about.html` |
+
+`CNAME` now contains `iqbalhamdzan.xyz`. DNS is at Namecheap (BasicDNS) with the four GitHub A records on the
+apex and `CNAME www → 0xb4bal.github.io`, coexisting with the iCloud Mail records (MX + SPF + `apple-domain`
+TXT on the apex, DKIM CNAME on `sig1._domainkey`). The apex uses **A records, never a CNAME**: a CNAME cannot
+coexist with the TXT/MX records already on the apex, and replacing them would break iCloud Mail.
+
+**If the site won't load from your own network:** the LAN resolver is Pi-hole (192.168.8.88) and it caches the
+old empty answer. Run `pihole reloaddns` on the Pi (or `pihole restartdns` on older builds) and flush the
+browser cache. From any other network the domain resolves fine.
 
 ## Next steps
 
