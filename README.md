@@ -1,6 +1,6 @@
 # Personal portfolio
 
-Static HTML and CSS portfolio for SOC and detection engineering work.
+Static HTML, CSS and progressive-enhancement JavaScript portfolio for SOC and detection engineering work.
 
 - Site: https://iqbalhamdzan.xyz
 - Repository: https://github.com/0xb4bal/0xb4bal.github.io
@@ -54,8 +54,9 @@ following the [GitHub Pages documentation](https://docs.github.com/en/pages/conf
 | `notes/index.html` | Notes index |
 | `notes/ioc-enrichment-workflow.html` | Enrichment methodology |
 | `404.html` | Not-found page |
-| `assets/style.css` | Site styling |
+| `assets/style.css` | Responsive styling and reduced-motion support |
+| `assets/site.js` | Accessible page search (Ctrl/Cmd+K) |
 | `.nojekyll` | Disables Jekyll processing |
 | `CNAME` | Custom domain |
 
-No application packages, external scripts, or build tools are required.
+No application packages, external scripts, trackers, or build tools are required. Core navigation and content work without JavaScript.
