@@ -1,141 +1,61 @@
-# portfolio-site
+# Personal portfolio
 
-Static hand-built portfolio site (no frameworks, no CDNs, no trackers, no build step). Lives in its own
-git repo so the Obsidian vault stays a vault.
+Static HTML and CSS portfolio for SOC and detection engineering work.
 
-## Where it goes
+- Site: https://iqbalhamdzan.xyz
+- Repository: https://github.com/0xb4bal/0xb4bal.github.io
+- Contact: security@iqbalhamdzan.xyz
 
-Repo: **`0xb4bal.github.io`** (a *user site* repo — it serves at the domain root).
+## Preview locally
 
-Using the user-site repo rather than a project repo is deliberate: your existing project site
-(`godmode` → `0xb4bal.github.io/godmode`) keeps working under the same domain, and nothing has to be
-moved. If you later set a custom domain, set it **only** on this repo, never on a project repo.
+From the repository directory, run:
 
-The repo must be **public** — on the Free plan, Pages only publishes from public repositories.
-
-## Publish — exact steps
-
-You have `git` but **no `gh` CLI** and no local git repos, so this is the git + personal-access-token route.
-
-```bash
-# 0. Preview locally first (absolute paths need a server, not file://)
-cd "$HOME/portfolio-site"
-python -m http.server 8000        # then open http://localhost:8000
-
-# 1. Git identity + credential storage (one time)
-git config --global user.name  "Muhammed Iqbal Hamdzan"
-git config --global user.email "your-github-email@example.com"
-git config --global credential.helper store
-
-# 2. Create the repo on GitHub (web UI): name it exactly 0xb4bal.github.io, Public, no README
-# 3. Init and push (this first push prompts for username + token)
-cd "$HOME/portfolio-site"
-git init -b main
-git add -A
-git commit -m "portfolio: initial site"
-git remote add origin https://github.com/0xb4bal/0xb4bal.github.io.git
-git push -u origin main
+```sh
+python -m http.server 8000 --bind 127.0.0.1
 ```
 
-When it prompts for a password, paste a **personal access token**, not your GitHub password:
+Open http://localhost:8000. A local server is needed because the site uses root-relative links.
 
-1. https://github.com/settings/tokens → *Generate new token (classic)*
-2. Scopes: `repo` (add `workflow` only if you later add Actions)
-3. Expiry: 90 days is fine. Copy it — it is shown once.
+## Editing and publishing
 
-## Turn on Pages
+Create a branch, edit the files, and open a pull request against `main`. Review the
+diff for personal information and client details before merging. GitHub Pages publishes
+from `main` at the repository root.
 
-1. Repo → **Settings → Pages**
-2. Source: **Deploy from a branch** → Branch: `main` → folder `/ (root)` → **Save**
-3. Live in about a minute at `https://0xb4bal.github.io`
+Authenticate Git using SSH or a credential manager backed by the operating system's
+secure storage. If HTTPS requires a personal access token, use a fine-grained token
+limited to this repository, the minimum permissions needed, and a short expiry.
+Do not paste credentials into files, remote URLs, or documentation.
 
-## Custom domain
+The custom domain is declared in `CNAME`. Manage DNS and HTTPS in the hosting settings,
+following the [GitHub Pages documentation](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
 
-1. Buy/keep the domain, then in **Settings → Pages → Custom domain** enter the apex domain
-   (e.g. `yourdomain.com`) and **Save**. GitHub offers to commit a `CNAME` file — accept it.
-2. At your registrar / DNS provider, point the apex at GitHub Pages (values verified against the
-   GitHub Pages docs, Sep 2026):
+## Publication checklist
 
-   | Type | Name | Value |
-   |---|---|---|
-   | A | `@` | `185.199.108.153` |
-   | A | `@` | `185.199.109.153` |
-   | A | `@` | `185.199.110.153` |
-   | A | `@` | `185.199.111.153` |
-   | AAAA | `@` | `2606:50c0:8000::153` |
-   | AAAA | `@` | `2606:50c0:8001::153` |
-   | AAAA | `@` | `2606:50c0:8002::153` |
-   | AAAA | `@` | `2606:50c0:8003::153` |
-   | CNAME | `www` | `0xb4bal.github.io` |
-
-   The AAAA records are optional (IPv6). Do **not** add wildcard records (`*.yourdomain.com`) —
-   GitHub's docs warn against them.
-3. Back in **Settings → Pages**, wait for *DNS check successful*, then tick **Enforce HTTPS**.
-   Propagation is usually minutes, can be up to 24 hours.
-
-**Subdomain instead of apex?** Then skip the A/AAAA records and just add
-`CNAME  portfolio → 0xb4bal.github.io`, and enter `portfolio.yourdomain.com` as the custom domain.
-
-## Editing workflow
-
-```bash
-cd "$HOME/portfolio-site"
-# edit files
-git add -A && git commit -m "what changed" && git push
-```
-
-Pages rebuilds automatically. No build step, no dependencies, nothing to install.
-
-## Content rules (non-negotiable)
-
-1. **Nothing derived from employer or client incidents is published here.** Not anonymised, not IOC-free.
-   Public content is lab-derived only. Anonymised real cases live in the private interview portfolio
-   (`Hermes/10-Security/case-writeup-playbook.md`).
-2. Naming your employer as *employment* is fine (it is already on LinkedIn). Naming a **client** is not —
-   `about.html` says "a central bank", and that is the level of detail to keep.
-3. Before publishing anything incident-flavoured, run the checker:
-   `python "$HOME/Hermes/70-Projects/case-writeup-tools/defang.py" check <file>`
-4. No invented metrics. If a number appears on the site, it came from a measurement.
+- Publish only lab-derived security content; exclude employer and client incident data.
+- Exclude client identities and combinations of details that could identify a client,
+  including posting locations, intermediaries, and precise assignment dates.
+- Exclude work schedules, home-network details, private workspace paths, and internal runbooks.
+- Exclude passwords, tokens, private keys, credential files, and unpublished documents.
+- Inspect every staged file and the complete diff before committing.
+- Keep metrics tied to measurements and label unfinished work clearly.
+- Treat every file at the repository root as public: Pages packages this directory,
+  including this README.
+- Prefer pull requests for changes. A written workflow does not enforce review;
+  repository rules must be configured separately if a review gate is required.
 
 ## Files
 
-| File | Contents |
+| File | Purpose |
 |---|---|
-| `index.html` | hero, what I do, current focus, daily stack |
-| `about.html` | bio, experience, certs, how I work, private case portfolio note |
-| `notes/index.html` | detection notes index (one published, rest clearly labelled in-progress) |
-| `notes/ioc-enrichment-workflow.html` | the one real note: enrichment order + honest tool limitation |
-| `projects.html` | GitHub projects with real repo links |
-| `404.html` | not-found page |
-| `assets/style.css` | the entire design; one file, no preprocessor |
-| `.nojekyll` | stops Jekyll touching the files |
+| `index.html` | Home page |
+| `about.html` | Professional background and contact |
+| `projects.html` | Project links |
+| `notes/index.html` | Notes index |
+| `notes/ioc-enrichment-workflow.html` | Enrichment methodology |
+| `404.html` | Not-found page |
+| `assets/style.css` | Site styling |
+| `.nojekyll` | Disables Jekyll processing |
+| `CNAME` | Custom domain |
 
-## Live status
-
-| Item | State |
-|---|---|
-| Repo | `0xb4bal.github.io` (public) — Pages on `main / (root)`, HTTPS enforced |
-| Default URL | https://0xb4bal.github.io (works) |
-| Custom domain | **https://iqbalhamdzan.xyz** — live, certificate issued (Let's Encrypt, covers apex + www, expires 15 Dec 2026, auto-renews) |
-| `www` | 301 → https://iqbalhamdzan.xyz |
-| Project sites | `iqbalhamdzan.xyz/godmode` still serves (why the user-site repo was used) |
-| Contact | `security@iqbalhamdzan.xyz` in the footer of every page + `about.html` |
-
-`CNAME` now contains `iqbalhamdzan.xyz`. DNS is at Namecheap (BasicDNS) with the four GitHub A records on the
-apex and `CNAME www → 0xb4bal.github.io`, coexisting with the iCloud Mail records (MX + SPF + `apple-domain`
-TXT on the apex, DKIM CNAME on `sig1._domainkey`). The apex uses **A records, never a CNAME**: a CNAME cannot
-coexist with the TXT/MX records already on the apex, and replacing them would break iCloud Mail.
-
-**If the site won't load from your own network:** the LAN resolver is Pi-hole (192.168.8.88) and it caches the
-old empty answer. Run `pihole reloaddns` on the Pi (or `pihole restartdns` on older builds) and flush the
-browser cache. From any other network the domain resolves fine.
-
-## Next steps
-
-- [ ] Push and confirm `https://0xb4bal.github.io` loads
-- [ ] Set the custom domain + DNS records, enforce HTTPS
-- [ ] GitHub profile: add a bio and set **Website** to the new domain (currently blank — free credibility)
-- [ ] LinkedIn: add the site as the profile website; add "Detection Engineering" to Projects only when the
-      lab is live and rules exist
-- [ ] Add a CV PDF at `/cv.pdf` and link it from `about.html` when you have one
-- [ ] Publish note #2 only after the rule exists and has been tested
+No application packages, external scripts, or build tools are required.
