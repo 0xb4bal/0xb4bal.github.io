@@ -6,21 +6,17 @@
 <title>Projects — Muhammed Iqbal Hamdzan</title>
 <meta name="description" content="Agentic security tooling: autonomous research agents on sanctioned platforms and a client-side multi-model AI console.">
 <meta name="color-scheme" content="dark">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/style.css?v=20261024">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>🛡</text></svg>">
+<meta name="theme-color" content="#0c0f0d">
+<link rel="canonical" href="https://iqbalhamdzan.xyz/projects.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Projects — Muhammed Iqbal Hamdzan">
+<meta property="og:description" content="SOC analyst in Kuala Lumpur. Detection engineering, incident investigation, and AI-assisted security tooling.">
+<meta property="og:url" content="https://iqbalhamdzan.xyz/projects.html">
+<script src="/assets/site.js?v=20261024" defer></script>
 </head>
-<body>
-<div class="wrap">
-<header class="site">
-  <a class="brand" href="/">iqbal<span>//</span>soc</a>
-  <nav>
-    <a href="/" >Home</a>
-    <a href="/notes/" >Notes</a>
-    <a href="/projects.html"  aria-current="page">Projects</a>
-    <a href="/about.html" >About</a>
-    <a href="https://github.com/0xb4bal" rel="me noopener">GitHub</a>
-  </nav>
-</header>
+<body><div class="wrap"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="/" aria-label="Iqbal SOC home"><b aria-hidden="true">i.</b>iqbal<span>//</span>soc</a><nav aria-label="Main navigation"><a href="/">Home</a><a href="/projects.html" aria-current="page">Projects</a><a href="/notes/">Notes</a><a href="/about.html">About</a><a href="https://github.com/0xb4bal">GitHub ↗</a></nav><button class="command-trigger" aria-label="Search pages (Control or Command K)" aria-haspopup="dialog">⌘ / Ctrl K</button></header><main id="main" class="page-content"><div class="eyebrow">PERSONAL RESEARCH &amp; TOOLING</div>
 <h1>Projects</h1>
 <p class="lede">Tooling I have built for my own work. Two of these exist because the repetitive part of an
 investigation should not need a human.</p>
@@ -29,29 +25,7 @@ investigation should not need a human.</p>
 training platforms or explicitly authorised scopes only, and every engagement-producing agent enforces scope
 before it acts.</p>
 
-<h2>Security agents</h2>
-<table>
-  <tr><th>Project</th><th>What it is</th></tr>
-  <tr><td><a href="https://github.com/0xb4bal/phantom-htb">phantom-htb</a></td>
-      <td>Autonomous Hack The Box agent built on Claude Code. Recursive pentest loops: enumerate, hypothesise,
-      exploit, record. A lab for testing how far an agent can get with a real methodology behind it.</td></tr>
-  <tr><td><a href="https://github.com/0xb4bal/redops">redops</a></td>
-      <td>Offensive security agent for Claude Code with multiple personas — methodology and reporting for
-      authorised engagements.</td></tr>
-  <tr><td><a href="https://github.com/0xb4bal/specter">specter</a></td>
-      <td>Focused variant of the above, aimed at training-platform work and structured write-ups.</td></tr>
-</table>
-
-<h2>Tools</h2>
-<table>
-  <tr><th>Project</th><th>What it is</th></tr>
-  <tr><td><a href="https://github.com/0xb4bal/godmode">godmode</a> &middot;
-      <a href="https://0xb4bal.github.io/godmode">live</a></td>
-      <td>Multi-model AI console in the browser: race the same prompt across models, compare outputs, bring your
-      own API key. Client-side only — no keys touch a server of mine.</td></tr>
-</table>
-
-<h2>Why build these</h2>
+<h2>Security agents &amp; tools</h2><div class="project-grid"><article class="project-card featured"><div class="card-top"><span>Security agent / 01</span><span aria-hidden="true">↗</span></div><h3>phantom-htb</h3><p>An autonomous Hack The Box agent. Recursive research loops with enumeration, hypotheses, and structured evidence.</p><div class="card-footer"><span>Claude Code · HTB</span><div><a href="https://github.com/0xb4bal/phantom-htb">View source ↗</a></div></div></article><article class="project-card"><div class="card-top"><span>Browser tool / 02</span><span aria-hidden="true">↗</span></div><h3>godmode</h3><p>One prompt. Multiple models. A browser console to compare AI outputs with your own API keys.</p><div class="card-footer"><span>Client-side · Multi-model</span><div><a href="https://0xb4bal.github.io/godmode">Live console ↗</a> · <a href="https://github.com/0xb4bal/godmode">View source ↗</a></div></div></article><article class="project-card"><div class="card-top"><span>Security agent / 03</span><span aria-hidden="true">↗</span></div><h3>redops</h3><p>A security agent with multiple personas, methodology, and reporting for authorised engagements.</p><div class="card-footer"><span>Claude Code · Research</span><div><a href="https://github.com/0xb4bal/redops">View source ↗</a></div></div></article><article class="project-card"><div class="card-top"><span>Security agent / 04</span><span aria-hidden="true">↗</span></div><h3>specter</h3><p>A focused agent for sanctioned training platforms, with structured write-ups built into the workflow.</p><div class="card-footer"><span>Training · Reporting</span><div><a href="https://github.com/0xb4bal/specter">View source ↗</a></div></div></article></div><h2>Why build these</h2>
 <p>Two reasons. First, the boring one: the enrichment, correlation and write-up steps that eat an analyst's
 shift are exactly the steps an agent should be doing, and the only way to know where that breaks is to build it
 and run it. Second, the useful one: an agent that produces a structured, evidence-labelled report from a lab
@@ -59,10 +33,4 @@ target is a fast, cheap way to test whether my own triage logic is consistent wh
 
 <p class="dim">More on the detection side as rules get written — see <a href="/notes/">notes</a>.</p>
 
-<footer class="site">
-  <span>Kuala Lumpur, Malaysia &middot; <span class="mono">muhammed iqbal bin hamdzan</span></span>
-  <span><a href="mailto:security@iqbalhamdzan.xyz">security@iqbalhamdzan.xyz</a> &middot; <a href="https://github.com/0xb4bal">github.com/0xb4bal</a> &middot; <a href="https://www.linkedin.com/in/iqbalhamdzan">LinkedIn</a></span>
-</footer>
-</div>
-</body>
-</html>
+</main><footer class="site-footer"><span>© 2026 Muhammed Iqbal Hamdzan<br>Kuala Lumpur, Malaysia · Built with intent.</span><div class="footer-links"><a href="mailto:security@iqbalhamdzan.xyz">Email ↗</a><a href="https://www.linkedin.com/in/iqbalhamdzan">LinkedIn ↗</a><a href="https://github.com/0xb4bal">GitHub ↗</a></div></footer></div><dialog id="command-palette" class="palette" aria-label="Find a page"><div class="palette-top"><input type="search" aria-label="Search pages" placeholder="Where do you want to go?" autocomplete="off"><button class="palette-close" aria-label="Close search">ESC</button></div><div class="palette-results"><a href="/">Home <small>01 / Overview</small></a><a href="/projects.html">Projects <small>02 / Security agents &amp; tools</small></a><a href="/notes/">Detection notes <small>03 / Lab notebook</small></a><a href="/notes/ioc-enrichment-workflow.html">Enriching an IP without trusting reputation <small>Read note ↗</small></a><a href="/about.html">About &amp; contact <small>04 / Background</small></a><p class="palette-empty" hidden>No matching pages. Try “projects” or “notes”.</p></div><div class="palette-hint">↑ ↓ to navigate · Enter to open · Esc to close</div></dialog></body></html>
