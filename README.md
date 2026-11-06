@@ -55,8 +55,18 @@ following the [GitHub Pages documentation](https://docs.github.com/en/pages/conf
 | `notes/ioc-enrichment-workflow.html` | Enrichment methodology |
 | `404.html` | Not-found page |
 | `assets/style.css` | Responsive styling and reduced-motion support |
-| `assets/site.js` | Accessible page search (Ctrl/Cmd+K) |
+| `assets/site.js` | Terminal navigation, page search, workflow tabs, project filters, and motion controls |
+| `assets/favicon.svg` | SOC shield favicon |
+| `notes/alert-to-disposition.html` | Investigation methodology |
 | `.nojekyll` | Disables Jekyll processing |
 | `CNAME` | Custom domain |
 
 No application packages, external scripts, trackers, or build tools are required. Core navigation and content work without JavaScript.
+
+## Interface behaviour
+
+- Press `/` for the portfolio terminal or Ctrl/Cmd+K for page search. The terminal accepts only a small set of named navigation and information commands; it never executes input as code or contacts security tools.
+- The investigation walkthrough supports arrow keys, Home, and End. Without JavaScript, the full method appears as a readable list.
+- Project filters separate SOC automation from personal lab and AI experiments. All projects remain visible without JavaScript.
+- Animation respects the system reduced-motion setting. A footer control can pause motion; only that preference is stored locally.
+- The identity-card shield is an original SVG illustration. No visitor telemetry, live incident feeds, or external scripts are used.
