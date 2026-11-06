@@ -1,22 +1,27 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Detection notes — Muhammed Iqbal Hamdzan</title>
 <meta name="description" content="Personal lab research and independently reconstructed security investigation methodology.">
 <meta name="color-scheme" content="dark">
-<link rel="stylesheet" href="/assets/style.css?v=20261024">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>🛡</text></svg>">
-<meta name="theme-color" content="#0c0f0d">
+<meta name="theme-color" content="#080c12">
 <link rel="canonical" href="https://iqbalhamdzan.xyz/notes/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Detection notes — Muhammed Iqbal Hamdzan">
-<meta property="og:description" content="SOC analyst in Kuala Lumpur. Detection engineering, incident investigation, and AI-assisted security tooling.">
+<meta property="og:description" content="Personal lab research and independently reconstructed security investigation methodology.">
 <meta property="og:url" content="https://iqbalhamdzan.xyz/notes/">
-<script src="/assets/site.js?v=20261024" defer></script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v=20261104">
+<script src="/assets/site.js?v=20261104" defer></script>
 </head>
-<body><div class="wrap"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="/" aria-label="Iqbal SOC home"><b aria-hidden="true">i.</b>iqbal<span>//</span>soc</a><nav aria-label="Main navigation"><a href="/">Home</a><a href="/projects.html">Projects</a><a href="/notes/" aria-current="page">Notes</a><a href="/about.html">About</a><a href="https://github.com/0xb4bal">GitHub ↗</a></nav><button class="command-trigger" aria-label="Search pages (Control or Command K)" aria-haspopup="dialog">⌘ / Ctrl K</button></header><main id="main" class="page-content"><div class="eyebrow">LAB NOTEBOOK</div>
+<body><div class="ambient" aria-hidden="true"><svg class="network" viewBox="0 0 1440 1100" preserveAspectRatio="xMidYMin slice"><g class="drift" fill="none" stroke="#4fcde855"><path d="M0 240 90 190 160 255 130 360 40 420 0 390M90 190 50 80 0 60M160 255 280 230M40 420 110 520 65 640M1440 90 1320 140 1290 300 1380 390 1440 350M1320 140 1160 100M1290 300 1180 340M1380 390 1310 560 1440 620"/></g><g class="drift" fill="#51e3f5"><circle cx="90" cy="190" r="3"/><circle cx="160" cy="255" r="3"/><circle cx="130" cy="360" r="2"/><circle cx="40" cy="420" r="3"/><circle cx="110" cy="520" r="2"/><circle cx="1320" cy="140" r="3"/><circle cx="1290" cy="300" r="2"/><circle cx="1380" cy="390" r="3"/><circle cx="1310" cy="560" r="2"/></g></svg></div><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="container header-inner">
+<a class="brand" href="/" aria-label="Iqbal SOC home"><span class="brand-mark">&gt;_</span> IQBAL<span class="brand-mark">.</span><small>BLUE TEAM</small></a>
+<nav class="desktop-nav" aria-label="Main navigation"><a href="/#profile">Profile</a><a href="/#experience">Experience</a><a href="/#workflow">Workflow</a><a href="/#toolkit">Toolkit</a><a href="/projects.html">Projects</a><a href="/notes/" aria-current="page">Notes</a></nav>
+<details class="mobile-menu"><summary>☰ Menu</summary><nav aria-label="Mobile navigation"><a href="/#profile">Profile</a><a href="/#experience">Experience</a><a href="/#workflow">Workflow</a><a href="/#toolkit">Toolkit</a><a href="/projects.html">Projects</a><a href="/notes/">Notes</a><a href="/#credentials">Credentials</a><a href="/about.html">About</a><a href="/#contact">Contact</a></nav></details>
+<div class="header-actions"><button class="terminal-trigger" data-open-terminal aria-haspopup="dialog" hidden><span>/</span> terminal</button><a class="button primary small" href="/#contact">Let’s talk <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+</div></header><div class="container"><main id="main" class="page-content"><a class="breadcrumb" href="/">← Back to overview</a><div class="eyebrow">LAB NOTEBOOK</div>
 <h1>Detection notes</h1>
 <p class="lede">Personal lab experiments and independently reconstructed investigation methodology. No internal employer telemetry, customer events or proprietary runbooks.</p>
 
@@ -40,4 +45,21 @@ than thirty that did not.</p></div>
 <p class="dim">Items in this list have no published result. They get promoted to the table above only when the
 rule exists and has been tested.</p>
 
-</main><footer class="site-footer"><span>© 2026 Muhammed Iqbal Hamdzan<br>Kuala Lumpur, Malaysia · Built with intent.</span><div class="footer-links"><a href="mailto:security@iqbalhamdzan.xyz">Email ↗</a><a href="https://www.linkedin.com/in/iqbalhamdzan">LinkedIn ↗</a><a href="https://github.com/0xb4bal">GitHub ↗</a></div></footer></div><dialog id="command-palette" class="palette" aria-label="Find a page"><div class="palette-top"><input type="search" aria-label="Search pages" placeholder="Where do you want to go?" autocomplete="off"><button class="palette-close" aria-label="Close search">ESC</button></div><div class="palette-results"><a href="/">Home <small>01 / Overview</small></a><a href="/projects.html">Projects <small>02 / Security agents &amp; tools</small></a><a href="/notes/">Detection notes <small>03 / Lab notebook</small></a><a href="/notes/ioc-enrichment-workflow.html">Enriching an IP without trusting reputation <small>Read note ↗</small></a><a href="/notes/alert-to-disposition.html">From alert to defensible assessment <small>Read note ↗</small></a><a href="/about.html">About &amp; contact <small>04 / Background</small></a><p class="palette-empty" hidden>No matching pages. Try “projects” or “notes”.</p></div><div class="palette-hint">↑ ↓ to navigate · Enter to open · Esc to close</div></dialog></body></html>
+</main><footer class="site-footer"><div>© <span data-year>2026</span> Muhammed Iqbal Hamdzan<br>Kuala Lumpur, Malaysia · Evidence before assumption.</div><div class="footer-links"><a href="https://github.com/0xb4bal">GitHub ↗</a><a href="https://www.linkedin.com/in/iqbalhamdzan">LinkedIn ↗</a><button class="motion-toggle" aria-pressed="false" hidden>Pause motion</button><button class="motion-toggle command-trigger" aria-haspopup="dialog" hidden>Search <span aria-hidden="true">⌘ K</span></button></div></footer></div><dialog class="terminal" id="terminal" aria-labelledby="terminal-title">
+<div class="dialog-bar"><span id="terminal-title"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>visitor@iqbal-soc: ~</span><button class="dialog-close" data-close aria-label="Close terminal">ESC ×</button></div>
+<div class="terminal-output" role="log" aria-label="Terminal output" aria-live="polite" tabindex="0"><p class="terminal-command">Welcome to the analyst’s console.</p><p class="terminal-response">Explore the portfolio with a command. Type help to begin.</p></div>
+<form class="terminal-form"><label for="terminal-input">visitor:~$</label><input id="terminal-input" name="command" aria-label="Terminal command" placeholder="help" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="120"><button type="submit">Run ↵</button></form>
+<div class="terminal-suggestions" aria-label="Suggested commands"><button type="button" data-command="whoami">whoami</button><button type="button" data-command="skills">skills</button><button type="button" data-command="workflow">workflow</button><button type="button" data-command="help">help</button></div><div class="terminal-caption">Portfolio navigation only · / to open · ↑ ↓ command history · Esc to close</div></dialog>
+<dialog id="command-palette" class="palette" aria-label="Find a page"><div class="palette-top"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input type="search" aria-label="Search pages" placeholder="Find a page or section…" autocomplete="off"><button class="dialog-close" data-close aria-label="Close search">ESC</button></div><div class="palette-results">
+<a href="/">Home<small>Overview</small></a>
+<a href="/#profile">Analyst profile<small>About</small></a>
+<a href="/#experience">Experience<small>Career</small></a>
+<a href="/#workflow">Investigation workflow<small>Six steps</small></a>
+<a href="/#toolkit">Toolkit<small>Skills</small></a>
+<a href="/#credentials">Credentials<small>Education</small></a>
+<a href="/projects.html">Projects<small>SOC, lab & AI</small></a>
+<a href="/notes/">Detection notes<small>Notebook</small></a>
+<a href="/notes/ioc-enrichment-workflow.html">Enriching an IP without trusting reputation<small>Read</small></a>
+<a href="/notes/alert-to-disposition.html">From alert to defensible assessment<small>Read</small></a>
+<a href="/about.html">About & contact<small>Background</small></a>
+<p class="palette-empty" hidden>No matching pages. Try “workflow” or “notes”.</p></div><div class="terminal-caption">↑ ↓ to navigate · Enter to open · Esc to close</div></dialog></body></html>
