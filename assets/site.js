@@ -1,9 +1,17 @@
 /* Interactive controls progressively enhance the static portfolio. */
 (() => {
   'use strict';
+  const language = document.documentElement.lang === 'ms' ? 'ms' : 'en';
+  const dictionary = language === 'ms' ? window.PORTFOLIO_TRANSLATIONS || {} : {};
+  const t = value => dictionary[value] || value;
+  const localRoute = path => (language === 'ms' ? '/ms' : '') + path;
   const stages = [{"title":"Frame the alert","short":"Context","icon":"target","desc":"Start with the behaviour the alert claims to detect. Identify the source, time window, affected asset, and the condition that triggered it.","output":"A clear investigation question.","tags":["Alert context","Entity","Time window"]},{"title":"Validate the telemetry","short":"Validate","icon":"activity","desc":"Compare parsed fields with the raw event. Check timestamps, field meaning, and gaps before treating a log entry as evidence.","output":"Verified observations, with visibility gaps recorded.","tags":["Raw events","Field validation","Log sources"]},{"title":"Connect the evidence","short":"Correlate","icon":"layers","desc":"Search historical activity and pivot across IPs, accounts, hosts, and related events. Establish whether the behaviour is isolated, repeated, or part of a wider pattern.","output":"A timeline and a set of related entities.","tags":["QRadar AQL","Historical search","Entity pivots"]},{"title":"Enrich with context","short":"Enrich","icon":"globe","desc":"Use threat intelligence to support a hypothesis. Consider shared infrastructure, source recency, and disagreement between providers before drawing a conclusion.","output":"Context that supports the evidence.","tags":["VirusTotal","AbuseIPDB","Threat intelligence"]},{"title":"Assess the outcome","short":"Assess","icon":"shield","desc":"Distinguish an attempted action from a successful one. Interpret security-control responses in context, state confidence, and make remaining uncertainty explicit.","output":"A defensible assessment of behaviour and impact.","tags":["Control outcomes","Confidence","MITRE ATT&CK"]},{"title":"Document and hand off","short":"Handoff","icon":"file","desc":"Write down observations, assessment, uncertainty, potential impact, and the recommended next action. Give the next analyst enough context to continue.","output":"An actionable case record or escalation.","tags":["Cortex XSOAR","Incident reporting","Escalation"]}];
   const all = (selector, parent = document) => [...parent.querySelectorAll(selector)];
   const one = (selector, parent = document) => parent.querySelector(selector);
+  stages.forEach(stage => {
+    ['title', 'short', 'desc', 'output'].forEach(key => { stage[key] = t(stage[key]); });
+    stage.tags = stage.tags.map(t);
+  });
 
   // Dialogs retain the browser's focus trap and Escape handling.
   const terminal = one('#terminal');
@@ -53,18 +61,21 @@
     };
     if (command === 'clear') output.replaceChildren();
     else if (command === 'exit') terminal.close();
-    else if (Object.hasOwn(responses, command)) appendLine(responses[command], 'terminal-response');
+    else if (Object.hasOwn(responses, command)) appendLine(t(responses[command]), 'terminal-response');
     else if (['projects','notes','about','contact'].includes(command)) {
       const routes = {projects:'/projects.html', notes:'/notes/', about:'/about.html', contact:'/#contact'};
       terminal.close();
-      window.location.assign(routes[command]);
-    } else appendLine('Unknown command. Type help for available commands.', 'terminal-response');
+      window.location.assign(localRoute(routes[command]));
+    } else appendLine(t('Unknown command. Type help for available commands.'), 'terminal-response');
     if (terminal.open) commandInput.focus();
   }
   if (terminal && typeof terminal.showModal === 'function') {
     all('[data-open-terminal]').forEach(button => {
       button.hidden = false;
-      button.addEventListener('click', () => openDialog(terminal, commandInput));
+      button.addEventListener('click', () => {
+        button.closest('details')?.removeAttribute('open');
+        openDialog(terminal, commandInput);
+      });
     });
     one('.terminal-form').addEventListener('submit', event => {
       event.preventDefault();
@@ -171,8 +182,9 @@
       buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === category)));
       projects.forEach(card => { card.hidden = category !== 'all' && card.dataset.category !== category; });
       const total = projects.filter(card => !card.hidden).length;
-      count.textContent = category === 'all' ? 'Showing all ' + total + ' projects.' :
-        'Showing ' + total + (category === 'soc' ? ' SOC automation projects.' : ' lab & AI projects.');
+      const message = category === 'all' ? 'Showing all {count} projects.' :
+        category === 'soc' ? 'Showing {count} SOC automation projects.' : 'Showing {count} lab & AI projects.';
+      count.textContent = t(message).replace('{count}', total);
     }
     buttons.forEach(button => button.addEventListener('click', () => filterProjects(button.dataset.filter)));
     filters.hidden = false;
@@ -192,7 +204,7 @@
     motionButton.hidden = false;
     motionButton.disabled = reducedMotion.matches;
     motionButton.setAttribute('aria-pressed', String(off));
-    motionButton.textContent = reducedMotion.matches ? 'Reduced motion' : off ? 'Resume motion' : 'Pause motion';
+    motionButton.textContent = t(reducedMotion.matches ? 'Reduced motion' : off ? 'Resume motion' : 'Pause motion');
   }
   motionButton?.addEventListener('click', () => {
     paused = !paused;
@@ -211,9 +223,9 @@
       const status = one('.copy-status');
       try {
         await navigator.clipboard.writeText('security@iqbalhamdzan.xyz');
-        status.textContent = 'Email address copied.';
+        status.textContent = t('Email address copied.');
       } catch {
-        status.textContent = 'Copy unavailable. Select the email address above, or use Email me.';
+        status.textContent = t('Copy unavailable. Select the email address above, or use Email me.');
       }
     });
   });

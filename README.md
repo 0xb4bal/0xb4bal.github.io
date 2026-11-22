@@ -68,5 +68,33 @@ No application packages, external scripts, trackers, or build tools are required
 - Press `/` for the portfolio terminal or Ctrl/Cmd+K for page search. The terminal accepts only a small set of named navigation and information commands; it never executes input as code or contacts security tools.
 - The investigation walkthrough supports arrow keys, Home, and End. Without JavaScript, the full method appears as a readable list.
 - Project filters separate SOC automation from personal lab and AI experiments. All projects remain visible without JavaScript.
-- Animation respects the system reduced-motion setting. A footer control can pause motion; only that preference is stored locally.
+- Animation respects the system reduced-motion setting. A footer control can pause motion. Motion and explicit language preferences are stored locally.
 - The identity-card shield is an original SVG illustration. No visitor telemetry, live incident feeds, or external scripts are used.
+
+## English and Bahasa Melayu
+
+English pages retain their existing URLs. Malay pages live under `/ms/`, with an
+EN / BM switch on every page. Switching keeps the current page, query and section.
+Internal links, search results and terminal navigation stay in the selected language.
+An explicit choice is remembered in `localStorage` as `iqbal-language`; a fresh visit
+to the English homepage restores Malay when selected. Direct links to other pages
+keep the language in their URL. If storage or JavaScript is unavailable, both sets
+of static pages and their language links still work.
+
+Edit English copy in the original HTML files and its Malay translation in
+`translations/ms.json`, then regenerate and commit the output:
+
+```sh
+python scripts/build-locales.py
+```
+
+The generator uses only the Python standard library. It checks every text node,
+accessible label and page description, and stops on missing translations. Its
+explicit `unchanged` list covers names, product names and literal terminal commands.
+The `ui` dictionary also generates `assets/translations.js` for dynamic messages.
+Do not edit generated `ms/` pages or `assets/translations.js` directly. Run the
+generator again after changing English copy, navigation or metadata.
+
+Commit the generated pages so GitHub Pages can publish without a build step.
+Each page has a language tag, canonical URL and reciprocal English/Malay alternate
+links. Shared asset URLs remain outside `/ms/`.
