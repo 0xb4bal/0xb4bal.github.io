@@ -2,45 +2,45 @@
 <html lang="ms"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daripada amaran kepada penilaian berasas — nota</title>
-<meta name="description" content="Kaedah siasatan SOC umum yang dibina semula secara bebas: konteks amaran, penelusuran sejarah, hasil kawalan dan penilaian dengan bukti yang dilabel.">
+<title>Daripada alert kepada penilaian berasas — nota</title>
+<meta name="description" content="Kaedah siasatan SOC umum yang dibina semula secara bebas: konteks alert, penelusuran sejarah, hasil kawalan dan penilaian dengan bukti yang dilabel.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#080c12">
 <link rel="canonical" href="https://iqbalhamdzan.xyz/ms/notes/alert-to-disposition.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Daripada amaran kepada penilaian berasas — nota">
-<meta property="og:description" content="Kaedah siasatan SOC umum yang dibina semula secara bebas: konteks amaran, penelusuran sejarah, hasil kawalan dan penilaian dengan bukti yang dilabel.">
+<meta property="og:title" content="Daripada alert kepada penilaian berasas — nota">
+<meta property="og:description" content="Kaedah siasatan SOC umum yang dibina semula secara bebas: konteks alert, penelusuran sejarah, hasil kawalan dan penilaian dengan bukti yang dilabel.">
 <meta property="og:url" content="https://iqbalhamdzan.xyz/ms/notes/alert-to-disposition.html">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/assets/style.css?v=20261116">
+<link rel="stylesheet" href="/assets/style.css?v=20261122">
 <!-- Language alternatives -->
 <link rel="alternate" hreflang="en" href="https://iqbalhamdzan.xyz/notes/alert-to-disposition.html">
 <link rel="alternate" hreflang="ms" href="https://iqbalhamdzan.xyz/ms/notes/alert-to-disposition.html">
 <link rel="alternate" hreflang="x-default" href="https://iqbalhamdzan.xyz/notes/alert-to-disposition.html">
 <meta property="og:locale" content="ms_MY">
 <meta property="og:locale:alternate" content="en_MY">
-<script src="/assets/language.js?v=20261116"></script>
-<script src="/assets/translations.js?v=20261116" defer></script>
-<script src="/assets/site.js?v=20261116" defer></script>
+<script src="/assets/language.js?v=20261122"></script>
+<script src="/assets/translations.js?v=20261122" defer></script>
+<script src="/assets/site.js?v=20261122" defer></script>
 </head>
 <body><div class="ambient" aria-hidden="true"><svg class="network" viewBox="0 0 1440 1100" preserveAspectRatio="xMidYMin slice"><g class="drift" fill="none" stroke="#4fcde855"><path d="M0 240 90 190 160 255 130 360 40 420 0 390M90 190 50 80 0 60M160 255 280 230M40 420 110 520 65 640M1440 90 1320 140 1290 300 1380 390 1440 350M1320 140 1160 100M1290 300 1180 340M1380 390 1310 560 1440 620"/></g><g class="drift" fill="#51e3f5"><circle cx="90" cy="190" r="3"/><circle cx="160" cy="255" r="3"/><circle cx="130" cy="360" r="2"/><circle cx="40" cy="420" r="3"/><circle cx="110" cy="520" r="2"/><circle cx="1320" cy="140" r="3"/><circle cx="1290" cy="300" r="2"/><circle cx="1380" cy="390" r="3"/><circle cx="1310" cy="560" r="2"/></g></svg></div><a class="skip" href="#main">Langkau ke kandungan</a>
 <header class="site-header"><div class="container header-inner">
-<a class="brand" href="/ms/" aria-label="Laman utama Iqbal SOC"><span class="brand-mark">&gt;_</span> IQBAL<span class="brand-mark">.</span><small>PASUKAN PERTAHANAN</small></a>
+<a class="brand" href="/ms/" aria-label="Laman utama Iqbal SOC"><span class="brand-mark">&gt;_</span> IQBAL<span class="brand-mark">.</span><small>BLUE TEAM</small></a>
 <nav class="desktop-nav" aria-label="Navigasi utama"><a href="/ms/#profile">Profil</a><a href="/ms/#experience">Pengalaman</a><a href="/ms/#workflow">Aliran kerja</a><a href="/ms/#toolkit">Alatan</a><a href="/ms/projects.html">Projek</a><a href="/ms/notes/" aria-current="page">Nota</a></nav>
 <details class="mobile-menu"><summary>☰ Menu</summary><nav aria-label="Navigasi mudah alih"><a href="/ms/#profile">Profil</a><a href="/ms/#experience">Pengalaman</a><a href="/ms/#workflow">Aliran kerja</a><a href="/ms/#toolkit">Alatan</a><a href="/ms/projects.html">Projek</a><a href="/ms/notes/">Nota</a><a href="/ms/#credentials">Kelayakan</a><a href="/ms/about.html">Tentang saya</a><a href="/ms/#contact">Hubungi</a><button type="button" class="terminal-trigger" data-open-terminal aria-haspopup="dialog" hidden>/ terminal</button></nav></details>
 <div class="header-actions"><nav class="language-switch" aria-label="Bahasa"><a href="/notes/alert-to-disposition.html" data-language="en" lang="en" hreflang="en" aria-label="English">EN</a><a href="/ms/notes/alert-to-disposition.html" data-language="ms" lang="ms" hreflang="ms" aria-label="Bahasa Melayu" aria-current="page">BM</a></nav><button class="terminal-trigger" data-open-terminal aria-haspopup="dialog" hidden><span>/</span> terminal</button><a class="button primary small" href="/ms/#contact">Mari berbual <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
-</div></header><div class="container"><main id="main" class="page-content"><a class="breadcrumb" href="/ms/">← Kembali ke laman utama</a><div class="eyebrow">KAEDAH SIASATAN</div><p class="mono dim">Proses SOC · dibina semula secara bebas · tanpa data majikan</p><h1>Daripada amaran kepada penilaian berasas</h1><p class="lede">Amaran ialah titik permulaan, bukan kesimpulan. Pendekatan saya membezakan perkara yang ditunjukkan oleh log daripada inferens saya, lalu menghasilkan serahan tugas yang boleh ditindaklanjuti.</p>
+</div></header><div class="container"><main id="main" class="page-content"><a class="breadcrumb" href="/ms/">← Kembali ke laman utama</a><div class="eyebrow">KAEDAH SIASATAN</div><p class="mono dim">Proses SOC · dibina semula secara bebas · tanpa data majikan</p><h1>Daripada alert kepada penilaian berasas</h1><p class="lede">Alert ialah titik permulaan, bukan kesimpulan. Pendekatan saya membezakan perkara yang ditunjukkan oleh log daripada inferens saya, lalu menghasilkan serahan tugas yang boleh ditindaklanjuti.</p>
 <h2>Urutan triage saya</h2><ol>
-<li><strong>Fahami amaran.</strong> Kenal pasti tingkah laku yang disyaki, entiti terlibat, sumber, julat masa dan pencetus sebenar amaran.</li>
-<li><strong>Sahkan telemetri.</strong> Periksa medan peristiwa yang dihuraikan, kemudian muatan mentah apabila konteks penting tiada. Semak tafsiran medan dan had masa pertanyaan.</li>
-<li><strong>Cari konteks sejarah.</strong> Semak sejarah IOC, sumber, destinasi, akaun atau hos. Tentukan sama ada aktiviti itu terpencil, berulang atau berkait dengan peristiwa lain.</li>
-<li><strong>Telusuri dan perkaya maklumat.</strong> Hubungkan entiti dan gunakan sumber risikan ancaman luaran untuk membentuk hipotesis, tanpa menggantikan pemerhatian terhadap tingkah laku sebenar.</li>
-<li><strong>Periksa hasilnya.</strong> Bezakan cubaan sambungan atau tindakan yang disekat daripada tindakan yang disahkan berjaya. Tindakan tembok api dan peristiwa penetapan semula perlu ditafsir mengikut konteks.</li>
-<li><strong>Buat keputusan dan sampaikan.</strong> Catat pemerhatian, penilaian, ketidakpastian, potensi impak, tindakan yang disyorkan dan keperluan untuk siasatan lanjut atau eskalasi.</li></ol>
-<h2>Contoh: trafik masuk yang dikaitkan dengan Tor</h2><p>Pertimbangkan satu amaran <em>hipotesis</em> bagi trafik daripada IP yang dilaporkan sebagai nod keluar Tor. Hubungan itu sahaja tidak membuktikan pencerobohan. Saya akan mengesahkan perkhidmatan destinasi, tempoh berkaitan, respons kawalan rangkaian, pembentukan sesi, permintaan berkaitan dan corak sejarah. Jika log tidak lengkap atau hasil yang diperhatikan tidak jelas, keputusan kes mesti mencerminkan ketidakpastian itu dan mungkin memerlukan eskalasi.</p>
-<div class="note"><p><strong>Senario ilustrasi sahaja:</strong> Halaman ini tidak menceritakan insiden pelanggan tertentu atau mendedahkan logik pengesanan asal, ambang dalaman atau telemetri sebenar.</p></div>
-<h2>Templat serahan tugas</h2><ol><li><strong>Pemerhatian:</strong> Apakah yang direkodkan, oleh jenis sumber log yang mana dan bila?</li><li><strong>Penilaian:</strong> Apakah tingkah laku yang disokong oleh bukti dan apakah yang masih belum pasti?</li><li><strong>Impak:</strong> Aset atau perkhidmatan manakah yang mungkin terjejas, tanpa mengandaikan kerosakan?</li><li><strong>Tindakan seterusnya yang disyorkan:</strong> Tutup kes mengikut dokumentasi, kumpulkan bukti tambahan atau eskalasi mengikut proses yang berkenaan.</li></ol>
-<h2>Mengapa saya menggunakan pendekatan ini</h2><p>Triage yang hanya bergantung pada reputasi mendorong kesimpulan pramatang. Carian sejarah, korelasi dan semakan hasil sambungan yang jelas mengukuhkan asas penilaian. Dokumentasi yang baik membolehkan penganalisis seterusnya menyambung tugas tanpa mengulang kerja yang sama.</p><p class="dim">Ini ialah kaedah peribadi umum yang dibina semula daripada pengalaman, bukan SOP majikan. Tiada log sebenar, alamat IP, pengecam pelanggan, tiket atau panduan operasi dalaman diterbitkan semula.</p><p class="dim"><a href="/ms/notes/">← semua nota</a></p></main><footer class="site-footer"><div>© <span data-year>2026</span> Muhammed Iqbal Hamdzan<br>Kuala Lumpur, Malaysia · Bukti mendahului andaian.</div><div class="footer-links"><a href="https://github.com/0xb4bal">GitHub ↗</a><a href="https://www.linkedin.com/in/iqbalhamdzan">LinkedIn ↗</a><button class="motion-toggle" aria-pressed="false" hidden>Jeda animasi</button><button class="motion-toggle command-trigger" aria-haspopup="dialog" hidden>Cari <span aria-hidden="true">⌘ K</span></button></div></footer></div><dialog class="terminal" id="terminal" aria-labelledby="terminal-title">
+<li><strong>Fahami alert.</strong> Kenal pasti tingkah laku yang disyaki, entiti terlibat, sumber, julat masa dan pencetus sebenar alert.</li>
+<li><strong>Sahkan telemetry.</strong> Periksa parsed event fields, kemudian raw payload apabila konteks penting tiada. Semak tafsiran field dan julat masa query.</li>
+<li><strong>Cari konteks sejarah.</strong> Semak sejarah IOC, sumber, destinasi, akaun atau host. Tentukan sama ada aktiviti itu terpencil, berulang atau berkait dengan events lain.</li>
+<li><strong>Lakukan pivot dan enrichment.</strong> Hubungkan entiti dan gunakan sumber threat intelligence luaran untuk membentuk hipotesis, tanpa menggantikan pemerhatian terhadap tingkah laku sebenar.</li>
+<li><strong>Periksa hasilnya.</strong> Bezakan cubaan sambungan atau tindakan yang disekat daripada tindakan yang disahkan berjaya. Firewall actions dan reset events perlu ditafsir mengikut konteks.</li>
+<li><strong>Buat keputusan dan sampaikan.</strong> Catat pemerhatian, penilaian, ketidakpastian, potensi impak, tindakan yang disyorkan dan keperluan untuk siasatan lanjut atau escalation.</li></ol>
+<h2>Contoh: trafik masuk yang dikaitkan dengan Tor</h2><p>Pertimbangkan satu alert <em>hipotesis</em> bagi trafik daripada IP yang dilaporkan sebagai Tor exit node. Hubungan itu sahaja tidak membuktikan pencerobohan. Saya akan mengesahkan perkhidmatan destinasi, tempoh berkaitan, respons network controls, pembentukan sesi, permintaan berkaitan dan corak sejarah. Jika log tidak lengkap atau hasil yang diperhatikan tidak jelas, keputusan kes mesti mencerminkan ketidakpastian itu dan mungkin memerlukan escalation.</p>
+<div class="note"><p><strong>Senario ilustrasi sahaja:</strong> Halaman ini tidak menceritakan insiden pelanggan tertentu atau mendedahkan detection logic asal, threshold dalaman atau telemetry sebenar.</p></div>
+<h2>Templat serahan tugas</h2><ol><li><strong>Pemerhatian:</strong> Apakah yang direkodkan, oleh jenis log source yang mana dan bila?</li><li><strong>Penilaian:</strong> Apakah tingkah laku yang disokong oleh bukti dan apakah yang masih belum pasti?</li><li><strong>Impak:</strong> Aset atau perkhidmatan manakah yang mungkin terjejas, tanpa mengandaikan kerosakan?</li><li><strong>Tindakan seterusnya yang disyorkan:</strong> Tutup kes mengikut dokumentasi, kumpulkan bukti tambahan atau lakukan escalation mengikut proses yang berkenaan.</li></ol>
+<h2>Mengapa saya menggunakan pendekatan ini</h2><p>Triage yang hanya bergantung pada reputasi mendorong kesimpulan pramatang. Historical search, correlation dan semakan hasil sambungan yang jelas mengukuhkan asas penilaian. Dokumentasi yang baik membolehkan penganalisis seterusnya menyambung tugas tanpa mengulang kerja yang sama.</p><p class="dim">Ini ialah kaedah peribadi umum yang dibina semula daripada pengalaman, bukan SOP majikan. Tiada log sebenar, alamat IP, pengecam pelanggan, ticket atau playbook dalaman diterbitkan semula.</p><p class="dim"><a href="/ms/notes/">← semua nota</a></p></main><footer class="site-footer"><div>© <span data-year>2026</span> Muhammed Iqbal Hamdzan<br>Kuala Lumpur, Malaysia · Bukti mendahului andaian.</div><div class="footer-links"><a href="https://github.com/0xb4bal">GitHub ↗</a><a href="https://www.linkedin.com/in/iqbalhamdzan">LinkedIn ↗</a><button class="motion-toggle" aria-pressed="false" hidden>Jeda animasi</button><button class="motion-toggle command-trigger" aria-haspopup="dialog" hidden>Cari <span aria-hidden="true">⌘ K</span></button></div></footer></div><dialog class="terminal" id="terminal" aria-labelledby="terminal-title">
 <div class="dialog-bar"><span id="terminal-title"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>visitor@iqbal-soc: ~</span><button class="dialog-close" data-close aria-label="Tutup terminal">ESC ×</button></div>
 <div class="terminal-output" role="log" aria-label="Output terminal" aria-live="polite" tabindex="0"><p class="terminal-command">Selamat datang ke konsol penganalisis.</p><p class="terminal-response">Terokai portfolio melalui arahan. Taip help untuk bermula.</p></div>
 <form class="terminal-form"><label for="terminal-input">visitor:~$</label><input id="terminal-input" name="command" aria-label="Arahan terminal" placeholder="help" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="120"><button type="submit">Jalankan ↵</button></form>
@@ -53,8 +53,8 @@
 <a href="/ms/#toolkit">Alatan<small>Kemahiran</small></a>
 <a href="/ms/#credentials">Kelayakan<small>Pendidikan</small></a>
 <a href="/ms/projects.html">Projek<small>SOC, makmal &amp; AI</small></a>
-<a href="/ms/notes/">Nota pengesanan<small>Buku nota</small></a>
-<a href="/ms/notes/ioc-enrichment-workflow.html">Memperkaya maklumat IP tanpa bergantung pada reputasi<small>Baca</small></a>
-<a href="/ms/notes/alert-to-disposition.html">Daripada amaran kepada penilaian berasas<small>Baca</small></a>
+<a href="/ms/notes/">Detection notes<small>Buku nota</small></a>
+<a href="/ms/notes/ioc-enrichment-workflow.html">IOC enrichment tanpa bergantung pada reputasi IP<small>Baca</small></a>
+<a href="/ms/notes/alert-to-disposition.html">Daripada alert kepada penilaian berasas<small>Baca</small></a>
 <a href="/ms/about.html">Latar belakang &amp; hubungan<small>Latar belakang</small></a>
 <p class="palette-empty" hidden>Tiada halaman sepadan. Cuba “aliran kerja” atau “nota”.</p></div><div class="terminal-caption">↑ ↓ untuk navigasi · Enter untuk buka · Esc untuk tutup</div></dialog></body></html>

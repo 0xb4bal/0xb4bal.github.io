@@ -88,6 +88,13 @@ Edit English copy in the original HTML files and its Malay translation in
 python scripts/build-locales.py
 ```
 
+Use natural Malay for navigation and explanations, while retaining familiar English
+technical terms and professional titles: SOC Analyst, Blue Team, alert triage,
+threat intelligence, detection engineering, endpoint, telemetry, IOC enrichment,
+false positive, and API keys. Apply the same terminology to page copy, metadata,
+accessible labels, workflow steps, and terminal responses. Keep these reviewed
+translations in the dictionary so the generator continues to check coverage.
+
 The generator uses only the Python standard library. It checks every text node,
 accessible label and page description, and stops on missing translations. Its
 explicit `unchanged` list covers names, product names and literal terminal commands.
