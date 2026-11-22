@@ -1,5 +1,6 @@
 {
   "text": {
+    "Kuala Lumpur skyline at sunset with palm silhouettes": "Skyline Kuala Lumpur ketika matahari terbenam dengan siluet pokok palma",
     "Iqbal Hamdzan — SOC Analyst & Security Investigator": "Iqbal Hamdzan — SOC Analyst & Security Investigator",
     "SOC analyst in Kuala Lumpur. Evidence-led investigation, incident triage, threat intelligence, and personal security automation.": "SOC Analyst di Kuala Lumpur. Siasatan berpandukan bukti, incident triage, threat intelligence dan projek security automation peribadi.",
     "Skip to content": "Langkau ke kandungan",
@@ -370,6 +371,7 @@
     "Copy unavailable. Select the email address above, or use Email me.": "Salinan tidak tersedia. Pilih alamat e-mel di atas atau gunakan E-mel saya."
   },
   "unchanged": [
+    "IH",
     "IQBAL", "HAMDZAN.", "Muhammed Iqbal Hamdzan", "@ Ensign InfoSecurity", "Ensign InfoSecurity",
     "// MUHAMMED IQBAL HAMDZAN · COMPTIA CySA+", "Kuala Lumpur, Malaysia", "KUALA LUMPUR", "SOC", "CySA+", "CySA",
     "github.com/0xb4bal", "SIEM & EDR", "IBM QRadar", "QRadar AQL", "Microsoft Sentinel", "Splunk", "LogRhythm", "Cortex XSOAR",
