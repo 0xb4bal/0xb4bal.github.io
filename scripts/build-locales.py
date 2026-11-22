@@ -15,7 +15,7 @@ PAGES = (
     "notes/alert-to-disposition.html", "notes/ioc-enrichment-workflow.html", "404.html",
 )
 ORIGIN = "https://iqbalhamdzan.xyz"
-VERSION = "20261116"
+VERSION = "20261122"
 DATA = json.loads((ROOT / "translations/ms.json").read_text(encoding="utf-8"))
 COPY = DATA["text"] | DATA["ui"]
 UNCHANGED = set(DATA["unchanged"])
@@ -27,7 +27,7 @@ def route(page):
 
 def prepare_english(source, page):
     path = route(page)
-    source = re.sub(r"(/assets/(?:style\.css|site\.js))\?v=\d+", rf"\1?v={VERSION}", source)
+    source = re.sub(r"(/assets/(?:style\.css|site\.js|language\.js|translations\.js))\?v=\d+", rf"\1?v={VERSION}", source)
     if '<!-- Language alternatives -->' not in source:
         alternatives = (
             '<!-- Language alternatives -->\n'
