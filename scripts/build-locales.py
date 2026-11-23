@@ -15,7 +15,7 @@ PAGES = (
     "notes/alert-to-disposition.html", "notes/ioc-enrichment-workflow.html", "404.html",
 )
 ORIGIN = "https://iqbalhamdzan.xyz"
-VERSION = "20261123"
+VERSION = "2026112302"
 DATA = json.loads((ROOT / "translations/ms.json").read_text(encoding="utf-8"))
 COPY = DATA["text"] | DATA["ui"]
 UNCHANGED = set(DATA["unchanged"])
@@ -76,7 +76,7 @@ class MalayPage(HTMLParser):
         updated = dict(attrs)
         if tag == "html":
             updated["lang"] = "ms"
-        for attr in ("aria-label", "placeholder", "title"):
+        for attr in ("aria-label", "placeholder", "title", "alt"):
             if attr in updated:
                 updated[attr] = self.translate(updated[attr])
         if "data-language" in updated:
