@@ -44,9 +44,6 @@ window.PORTFOLIO_TRANSLATIONS = Object.freeze({
   "Showing all {count} projects.": "Memaparkan kesemua {count} projek.",
   "Showing {count} SOC automation projects.": "Memaparkan {count} projek SOC automation.",
   "Showing {count} lab & AI projects.": "Memaparkan {count} projek makmal & AI.",
-  "Reduced motion": "Gerakan dikurangkan",
-  "Resume motion": "Sambung animasi",
-  "Pause motion": "Jeda animasi",
   "Email address copied.": "Alamat e-mel disalin.",
   "Copy unavailable. Select the email address above, or use Email me.": "Salinan tidak tersedia. Pilih alamat e-mel di atas atau gunakan E-mel saya."
 });

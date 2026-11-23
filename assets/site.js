@@ -189,30 +189,7 @@
     buttons.forEach(button => button.addEventListener('click', () => filterProjects(button.dataset.filter)));
     filters.hidden = false;
     count.hidden = false;
-    if (window.location.hash === '#soc-automation') filterProjects('soc');
   }
-
-  // Respect system motion preferences and remember the manual pause option.
-  const motionButton = one('.motion-toggle:not(.command-trigger)');
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let paused = false;
-  try { paused = localStorage.getItem('iqbal-motion') === 'off'; } catch {}
-  function updateMotion() {
-    const off = paused || reducedMotion.matches;
-    document.documentElement.dataset.motion = off ? 'off' : 'on';
-    if (!motionButton) return;
-    motionButton.hidden = false;
-    motionButton.disabled = reducedMotion.matches;
-    motionButton.setAttribute('aria-pressed', String(off));
-    motionButton.textContent = t(reducedMotion.matches ? 'Reduced motion' : off ? 'Resume motion' : 'Pause motion');
-  }
-  motionButton?.addEventListener('click', () => {
-    paused = !paused;
-    try { localStorage.setItem('iqbal-motion', paused ? 'off' : 'on'); } catch {}
-    updateMotion();
-  });
-  reducedMotion.addEventListener('change', updateMotion);
-  updateMotion();
 
   all('.mobile-menu nav a').forEach(link => link.addEventListener('click', () => link.closest('details').removeAttribute('open')));
   all('[data-year]').forEach(node => { node.textContent = new Date().getFullYear(); });

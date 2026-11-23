@@ -1,7 +1,6 @@
 {
   "text": {
     "Portrait of Muhammed Iqbal Hamdzan": "Potret Muhammed Iqbal Hamdzan",
-    "Kuala Lumpur skyline at sunset with palm silhouettes": "Skyline Kuala Lumpur ketika matahari terbenam dengan siluet pokok palma",
     "Iqbal Hamdzan — SOC Analyst & Security Investigator": "Iqbal Hamdzan — SOC Analyst & Security Investigator",
     "SOC analyst in Kuala Lumpur. Evidence-led investigation, incident triage, threat intelligence, and personal security automation.": "SOC Analyst di Kuala Lumpur. Siasatan berpandukan bukti, incident triage, threat intelligence dan projek security automation peribadi.",
     "Skip to content": "Langkau ke kandungan",
@@ -32,11 +31,6 @@
     "Analyst identity card": "Kad identiti penganalisis",
     "ANALYST ID / 0XB4BAL": "ID PENGANALISIS / 0XB4BAL",
     "● BLUE TEAM": "● BLUE TEAM",
-    "SOC shield surrounded by connected telemetry nodes": "Perisai SOC dikelilingi telemetry nodes yang saling berhubung",
-    "DETECT · INVESTIGATE · RESPOND": "KESAN · SIASAT · TINDAK",
-    "TELEMETRY → CONTEXT": "TELEMETRY → KONTEKS",
-    "EVIDENCE FIRST": "UTAMAKAN BUKTI",
-    "HUMAN LED": "DIPANDU MANUSIA",
     "SECURITY OPERATIONS · INVESTIGATION": "SECURITY OPERATIONS · SIASATAN",
     "FOCUS": "FOKUS",
     "DEFENCE": "PERTAHANAN",
@@ -121,7 +115,6 @@
     "Incident monitoring": "Incident monitoring",
     "A browser userscript exploring notifications and audible alerts for new incident IDs. A small experiment in reducing repetitive queue checking.": "Browser userscript yang meneroka notifikasi dan audible alerts bagi incident ID baharu. Eksperimen kecil untuk mengurangkan semakan incident queue yang berulang.",
     "Personal experiment": "Eksperimen peribadi",
-    "Project details ↗": "Butiran projek ↗",
     "AUTHORISED LAB RESEARCH": "PENYELIDIKAN MAKMAL BERIZIN",
     "An autonomous Hack The Box agent exploring enumeration, hypotheses, and structured evidence in sanctioned training environments.": "Agent autonomi Hack The Box yang meneroka enumeration, hipotesis dan bukti berstruktur dalam persekitaran latihan yang dibenarkan.",
     "Lab tooling": "Alatan makmal",
@@ -365,9 +358,6 @@
     "Showing all {count} projects.": "Memaparkan kesemua {count} projek.",
     "Showing {count} SOC automation projects.": "Memaparkan {count} projek SOC automation.",
     "Showing {count} lab & AI projects.": "Memaparkan {count} projek makmal & AI.",
-    "Reduced motion": "Gerakan dikurangkan",
-    "Resume motion": "Sambung animasi",
-    "Pause motion": "Jeda animasi",
     "Email address copied.": "Alamat e-mel disalin.",
     "Copy unavailable. Select the email address above, or use Email me.": "Salinan tidak tersedia. Pilih alamat e-mel di atas atau gunakan E-mel saya."
   },
@@ -379,7 +369,7 @@
     "CrowdStrike Falcon", "Trellix", "Vectra", "Trend Micro Apex", "VirusTotal", "AbuseIPDB", "Cisco Talos", "IBM X-Force", "MITRE ATT&CK",
     "Sigma", "Wazuh / Elastic", "Python", "JavaScript", "Tampermonkey", "phantom-htb", "Claude Code", "HTB", "godmode", "redops", "specter",
     "COMPTIA · JAN 2026", "Universiti Kuala Lumpur (UniKL)", "Politeknik Mersing", "CompTIA CySA+ (Jan 2026)",
-    "$ connect --analyst iqbal", "LinkedIn", "security@iqbalhamdzan.xyz", "GitHub ↗", "LinkedIn ↗", "⌘ K", "visitor@iqbal-soc: ~", "ESC ×", "visitor:~$",
+    "$ connect --analyst iqbal", "LinkedIn", "security@iqbalhamdzan.xyz", "GitHub ↗", "LinkedIn ↗", "visitor@iqbal-soc: ~", "ESC ×", "visitor:~$",
     "help", "whoami", "skills", "workflow", "ESC", "terminal", "/ terminal", "☰ Menu", "EN", "BM", "English", "Bahasa Melayu"
   ]
 }
