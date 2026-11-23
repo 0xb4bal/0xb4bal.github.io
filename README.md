@@ -57,6 +57,7 @@ following the [GitHub Pages documentation](https://docs.github.com/en/pages/conf
 | `assets/style.css` | Responsive styling and reduced-motion support |
 | `assets/site.js` | Terminal navigation, page search, workflow tabs, project filters, and motion controls |
 | `assets/favicon.svg` | Sunset IH monogram favicon |
+| `assets/iqbal-portrait.webp` | Transparent portrait used in the hero card |
 | `assets/sunset-skyline.svg` | Original palm and Kuala Lumpur skyline artwork |
 | `assets/fonts/` | Self-hosted Bebas Neue display font and OFL license |
 | `notes/alert-to-disposition.html` | Investigation methodology |
@@ -71,7 +72,7 @@ No application packages, external scripts, trackers, or build tools are required
 - The investigation walkthrough supports arrow keys, Home, and End. Without JavaScript, the full method appears as a readable list.
 - Project filters separate SOC automation from personal lab and AI experiments. All projects remain visible without JavaScript.
 - Animation respects the system reduced-motion setting. A footer control can pause motion. Motion and explicit language preferences are stored locally.
-- The GTA VI-inspired sunset theme uses original palm and Kuala Lumpur skyline artwork, warm pink and peach accents, and aqua details. The identity card and favicon use an IH monogram.
+- The GTA VI-inspired sunset theme uses original palm and Kuala Lumpur skyline artwork, warm pink and peach accents, and aqua details. The identity card uses Iqbal's portrait with a transparent background; the header and favicon retain the IH monogram.
 - Bebas Neue is self-hosted under the SIL Open Font License; its license is included in `assets/fonts/OFL.txt`. The artwork is in `assets/sunset-skyline.svg`. No visitor telemetry, live incident feeds, or external scripts are used.
 
 ## English and Bahasa Melayu
