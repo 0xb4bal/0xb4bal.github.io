@@ -55,12 +55,17 @@ following the [GitHub Pages documentation](https://docs.github.com/en/pages/conf
 | `notes/ioc-enrichment-workflow.html` | Enrichment methodology |
 | `404.html` | Not-found page |
 | `assets/style.css` | Responsive styling and reduced-motion support |
-| `assets/site.js` | Terminal navigation, page search, workflow tabs, project filters, and motion controls |
+| `assets/site.js` | Terminal navigation, page search, workflow tabs, and project filters |
 | `assets/favicon.svg` | Sunset IH monogram favicon |
 | `assets/iqbal-portrait.webp` | Transparent portrait used in the hero card |
 | `assets/sunset-skyline.svg` | Original palm and Kuala Lumpur skyline artwork |
 | `assets/fonts/` | Self-hosted Bebas Neue display font and OFL license |
 | `notes/alert-to-disposition.html` | Investigation methodology |
+| `assets/language.js` | EN / BM switch and remembered language choice |
+| `assets/translations.js` | Generated Malay strings for dynamic messages |
+| `translations/ms.json` | Malay translation dictionary |
+| `scripts/build-locales.py` | Generates `ms/` pages and `assets/translations.js` |
+| `ms/` | Generated Malay pages |
 | `.nojekyll` | Disables Jekyll processing |
 | `CNAME` | Custom domain |
 
@@ -68,10 +73,10 @@ No application packages, external scripts, trackers, or build tools are required
 
 ## Interface behaviour
 
-- Press `/` for the portfolio terminal or Ctrl/Cmd+K for page search. The terminal accepts only a small set of named navigation and information commands; it never executes input as code or contacts security tools.
+- Press `/` for the portfolio terminal, or Ctrl/Cmd+K or the footer Search button for page search. The terminal accepts only a small set of named navigation and information commands; it never executes input as code or contacts security tools.
 - The investigation walkthrough supports arrow keys, Home, and End. Without JavaScript, the full method appears as a readable list.
 - Project filters separate SOC automation from personal lab and AI experiments. All projects remain visible without JavaScript.
-- Animation respects the system reduced-motion setting. A footer control can pause motion. Motion and explicit language preferences are stored locally.
+- Animation respects the system reduced-motion setting. An explicit language preference is stored locally.
 - The GTA VI-inspired sunset theme uses original palm and Kuala Lumpur skyline artwork, warm pink and peach accents, and aqua details. The identity card uses Iqbal's portrait with a transparent background; the header and favicon retain the IH monogram.
 - Bebas Neue is self-hosted under the SIL Open Font License; its license is included in `assets/fonts/OFL.txt`. The artwork is in `assets/sunset-skyline.svg`. No visitor telemetry, live incident feeds, or external scripts are used.
 
