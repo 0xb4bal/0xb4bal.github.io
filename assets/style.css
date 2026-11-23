@@ -466,8 +466,8 @@ body { position: relative; isolation: isolate; background: radial-gradient(ellip
 .identity-art:before { width: 34px; height: 34px; border-color: #fff1db; border-width: 2px 0 0 2px; top: 10px; left: 10px; }
 .identity-art:after { width: 34px; height: 34px; border-color: #fff1db; border-width: 0 2px 2px 0; right: 10px; bottom: 10px; }
 .identity-scene-label { position: absolute; bottom: 18px; font: 10px var(--mono); letter-spacing: .25em; color: #fff1e3; }
-.identity-art.portrait-art { aspect-ratio: .95; }
-.identity-portrait { position: absolute; inset: 0; z-index: 1; display: block; width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
+.identity-art.portrait-art { aspect-ratio: 1092 / 1441; }
+.identity-portrait { position: absolute; inset: 0; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 .portrait-art .identity-scene-label { z-index: 3; bottom: 13px; padding: 5px 9px; background: #1b142bd9; border: 1px solid #eab2cc4d; border-radius: 3px; }
 .identity-name { font: 34px/1.08 var(--display); letter-spacing: .015em; margin: 0 0 8px; }
 .identity-role { color: var(--pink); font-size: 10px; margin: 5px 0 18px; letter-spacing: .06em; }
